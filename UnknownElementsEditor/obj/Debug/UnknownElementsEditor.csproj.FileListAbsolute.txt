@@ -1,0 +1,15 @@
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\UnknownElementsEditor.exe.config
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\UnknownElementsEditor.exe
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\UnknownElementsEditor.pdb
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csprojAssemblyReference.cache
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\MainWindow.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\App.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor_MarkupCompile.cache
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor_MarkupCompile.lref
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\MainWindow.baml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.g.resources
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.Properties.Resources.resources
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.GenerateResource.cache
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.CoreCompileInputs.cache
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.exe
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.pdb

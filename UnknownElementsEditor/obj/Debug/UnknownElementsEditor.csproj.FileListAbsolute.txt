@@ -13,3 +13,10 @@ D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownEleme
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.CoreCompileInputs.cache
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.exe
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.pdb
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GameProject\ProjectBrowserWin.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GameProject\ProjectBrowserWin.baml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GameProject\CreateProjectView.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GameProject\OpenProjectView.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GameProject\CreateProjectView.baml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GameProject\OpenProjectView.baml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\GeneratedInternalTypeHelper.g.cs

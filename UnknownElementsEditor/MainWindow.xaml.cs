@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UnknownElementsEditor.GameProject;
 
 namespace UnknownElementsEditor
 {
@@ -23,6 +24,27 @@ namespace UnknownElementsEditor
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += OnMainWindowLoaded;
+        }
+
+        private void OnMainWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= OnMainWindowLoaded;
+            OpenProjectBrowserWin();
+        }
+
+        private void OpenProjectBrowserWin()
+        {
+            ProjectBrowserWin projectBrowser = new ProjectBrowserWin();
+
+            if (projectBrowser.ShowDialog() == false)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+
+            }
         }
     }
 }

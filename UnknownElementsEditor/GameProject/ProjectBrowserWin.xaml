@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnknownElementsEditor.GameProject"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Title="ProjectBrowserWin" Height="450" Width="800">
+        Title="ProjectBrowserWin" Height="675" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <ToggleButton Content="Open Project" x:Name="openProjectButton" Click="OnToggleButtonClick" FontSize="48"/>
+            <ToggleButton Content="Create Project" x:Name="createProjectButton" Click="OnToggleButtonClick" FontSize="48" Margin="30,0,0,0"/>
+
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Margin="20">
+            <ToggleButton Content="Unknown Elements News" x:Name="unknownNewsButton" Click="OnToggleButtonClick" IsChecked="True" FontSize="32" Margin="0,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" x:Name="browserView" >
+            <StackPanel Width="800" Background="LightGray">
+                <TextBlock FontSize="24" Background="LightGray">
+                        Unknown Elements News:
+                </TextBlock>
+
+                <TextBlock FontSize="16" Width="800" Height="415" Background="LightGray" Margin="0,3,0,0">
+                    Date 12/04/2022: Unknown Elements Project Starts.<LineBreak/>
+                    Date 14/04/2022: Added Basic Open Project and Create Project views.<LineBreak/>
+                </TextBlock>
+            </StackPanel>
+
+            <local:OpenProjectView/>
+            <local:CreateProjectView/>
+            
+        </StackPanel>
     </Grid>
+
 </Window>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\App.xaml
-2375889856
+4-382363929
 
-71176437717
+9-1246067153
 13-1505183044
-GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
+GameProject\CreateProjectView.xaml;GameProject\OpenProjectView.xaml;GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
 
 True
 

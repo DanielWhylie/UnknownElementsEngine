@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UnknownElementsEditor.GameProject"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Height="450" Width="800"
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Background="LightGray">
         <StackPanel Orientation="Horizontal">
@@ -40,16 +40,14 @@
                 </StackPanel>
             </ListBox>
 
-            <Border Width="540" Background="LightCyan" Margin="0,20,20,20">
-                <StackPanel>
-                    <TextBlock Text="Project Name"/>
-                    <TextBlock Text="Project Path"/>
-                    <TextBlock Text="Create Button"/>
-                    <TextBlock Text="Exit Button"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="150,100,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Button Content="Open" Width="100" IsDefault="True"/>
+                    <Button Content="Exit" Width="100" IsCancel="True" Margin="10,0,0,0"/>
                 </StackPanel>
-            </Border>
+            </StackPanel>
         </StackPanel>
-
+        
         <StackPanel>
             <Border Height="210" Background="LightCyan">
                 <TextBlock Text="IMG Display"/>

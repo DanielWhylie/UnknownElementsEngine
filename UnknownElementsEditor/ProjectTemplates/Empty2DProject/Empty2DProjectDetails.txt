@@ -1,0 +1,1 @@
+This project gives the user an empty project so they can make whatever they want. The template contains: Nothing.

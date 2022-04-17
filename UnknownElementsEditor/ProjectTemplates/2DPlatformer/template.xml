@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <projectFileName>tempProjectName.unknownelements</projectFileName>
+  <projectType>2D Platformer Project</projectType>
+  <projectFolders>
+    <string>.UnknownElements</string>
+    <string>Content</string>
+    <string>GameCode</string>
+  </projectFolders>
+</ProjectTemplate>

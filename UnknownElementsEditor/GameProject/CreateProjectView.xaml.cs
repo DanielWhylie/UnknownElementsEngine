@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace UnknownElementsEditor.GameProject
 {
@@ -23,6 +24,27 @@ namespace UnknownElementsEditor.GameProject
         public CreateProjectView()
         {
             InitializeComponent();
+        }
+
+        public void OnBrowseFileButtonClick(Object sender, RoutedEventArgs e)
+        {
+            if(sender == fileBrowseButton)
+            {
+                CommonOpenFileDialog fileBrowserDialog = new CommonOpenFileDialog();
+
+                fileBrowserDialog.InitialDirectory = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\UnknownElements";
+                fileBrowserDialog.IsFolderPicker = true;
+
+                if (fileBrowserDialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    projectPathEntry.Text = fileBrowserDialog.FileName;
+                    Application.Current.Windows[1].Focus();
+                }
+                else
+                {
+                    Application.Current.Windows[1].Focus();
+                }
+            }
         }
     }
 }

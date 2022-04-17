@@ -1,0 +1,1 @@
+This project gives the user a basic template to make a 2D platformer. The template contains: 2D player, Platform sprite with colliders, Gravity.

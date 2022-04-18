@@ -4,17 +4,20 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace UnknownElementsEditor.GameProject
 {
+    [DataContract]
     public class ProjectTemplate
     {
+        [DataMember]
         public string projectFileName { get; set;}
+        [DataMember]
         public string projectType { get; set; }
+        [DataMember]
         public List<String> projectFolders { get; set; }
         public byte[] projectScreenshot { get; set; }
         public string projectScreenshotPath { get; set; }
@@ -35,12 +38,13 @@ namespace UnknownElementsEditor.GameProject
                 if (_projectName != value)
                 {
                     _projectName = value;
+                    IsValidProjectPath();
                     OnPropertyChanged(nameof(ProjectName));
                 }
             }
         }
 
-        private string _projectPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\UnknownElements";
+        private string _projectPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\UnknownElementsProjects";
         public string ProjectPath
         {
             get => _projectPath;
@@ -49,13 +53,132 @@ namespace UnknownElementsEditor.GameProject
                 if (_projectPath != value)
                 {
                     _projectPath = value;
+                    IsValidProjectPath();
                     OnPropertyChanged(nameof(ProjectPath));
                 }
             }
         }
 
+        private bool _validPath;
+        public bool ValidPath
+        {
+            get => _validPath;
+            set
+            {
+                if (_validPath != value)
+                {
+                    _validPath = value;
+                    OnPropertyChanged(nameof(ValidPath));
+                }
+            }
+        }
+
+        public string _ValidationErrorMsg;
+        public string ValidationErrorMsg
+        {
+            get => _ValidationErrorMsg;
+            set
+            {
+                if (_ValidationErrorMsg != value)
+                {
+                    _ValidationErrorMsg = value;
+                    OnPropertyChanged(nameof(ValidationErrorMsg));
+                }
+            }
+        }
+
+        private bool IsValidProjectPath()
+        {
+            string path = ProjectPath;
+
+            if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()) || !path.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
+            {
+                path += Path.DirectorySeparatorChar.ToString();
+            }
+
+            path += $@"{ProjectName}";
+            ValidPath = false;
+
+            if (String.IsNullOrWhiteSpace(ProjectName.Trim()))
+            {
+                ValidationErrorMsg = "Enter a project name";
+            }
+            else if (ProjectName.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
+            {
+                ValidationErrorMsg = "Invalid character in project name";
+            }
+            else if (String.IsNullOrWhiteSpace(ProjectPath.Trim()))
+            {
+                ValidationErrorMsg = "Enter a project path";
+            }
+            else if (ProjectName.IndexOfAny(Path.GetInvalidPathChars()) != -1)
+            {
+                ValidationErrorMsg = "Invalid character in project path";
+            }
+            else if (Directory.Exists(path) && Directory.EnumerateFileSystemEntries(path).Any())
+            {
+                ValidationErrorMsg = "Project folder already exists and is occupied";
+            }
+            else
+            {
+                ValidationErrorMsg = String.Empty;
+                ValidPath = true;
+            }
+
+            return ValidPath;
+        }
+
         private ObservableCollection<ProjectTemplate> _projectTemplates = new ObservableCollection<ProjectTemplate>();
         public ReadOnlyObservableCollection<ProjectTemplate> ProjectTemplates { get; }
+
+        public string CreateProject(ProjectTemplate template)
+        {
+            IsValidProjectPath();
+
+            if (!ValidPath)
+            {
+                return String.Empty;
+            }
+
+            if (!ProjectPath.EndsWith(Path.DirectorySeparatorChar.ToString()) || !ProjectPath.EndsWith(Path.AltDirectorySeparatorChar.ToString()))
+            {
+                ProjectPath += Path.DirectorySeparatorChar.ToString();
+
+            }
+
+            string path = $@"{ProjectPath}{ProjectName}{Path.DirectorySeparatorChar.ToString()}";
+
+            try
+            {
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                foreach (string folderName in template.projectFolders)
+                {
+                    Directory.CreateDirectory(Path.GetFullPath(Path.Combine(Path.GetDirectoryName(path), folderName)));
+                }
+
+                DirectoryInfo pathInfo = new DirectoryInfo(path + @".UnknownElements\");
+                pathInfo.Attributes |= FileAttributes.Hidden;
+
+                File.Copy(template.projectScreenshotPath, Path.GetFullPath(Path.Combine(pathInfo.FullName, "Screenshot.png")));
+
+                string xmlProject = File.ReadAllText(template.projectFilePath);
+                xmlProject = String.Format(xmlProject, ProjectName, ProjectPath);
+                string projectPath = Path.GetFullPath(Path.Combine(path, $"{ProjectName}{UserProject.fileExtention}"));
+                File.WriteAllText(projectPath, xmlProject);
+
+                return path;
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+                return String.Empty;
+            }
+        }
 
         public NewProject()
         {
@@ -87,6 +210,7 @@ namespace UnknownElementsEditor.GameProject
 
                     _projectTemplates.Add(template);
 
+                    IsValidProjectPath();
                 }
             }
             catch (Exception e)

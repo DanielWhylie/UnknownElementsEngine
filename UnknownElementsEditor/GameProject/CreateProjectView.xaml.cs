@@ -38,13 +38,33 @@ namespace UnknownElementsEditor.GameProject
                 if (fileBrowserDialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
                     projectPathEntry.Text = fileBrowserDialog.FileName;
-                    Application.Current.Windows[1].Focus();
+                    Window.GetWindow(this).Focus();
                 }
                 else
                 {
-                    Application.Current.Windows[1].Focus();
+                    Window.GetWindow(this).Focus();
                 }
             }
+        }
+
+        public void OnCreateButtonClick(Object sender, RoutedEventArgs e)
+        {
+            if (sender == createButton)
+            {
+                var dContext = DataContext as NewProject;
+                string projectPath = dContext.CreateProject(templatesListBox.SelectedItem as ProjectTemplate);
+
+                bool dialogResult = false;
+
+                if (!String.IsNullOrEmpty(projectPath))
+                {
+                    dialogResult = true;
+                }
+
+                Window.GetWindow(this).DialogResult = dialogResult;
+                Window.GetWindow(this).Close();
+            }
+            
         }
     }
 }

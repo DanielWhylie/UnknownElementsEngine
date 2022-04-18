@@ -5,24 +5,24 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace UnknownElementsEditor
 {
     public static class Serializer
     {
-        //TODO: may need to refactor for Deep Serialization.
+        //TODO: need to use DataContracts.
         public static void WriteToXml<T>(T objToSerialize, string filePath)
         {
             
 
             try
             {
-                XmlSerializer serializerForXml = new XmlSerializer(objToSerialize.GetType());
-
-                using (StreamWriter writer = new StreamWriter(filePath))
+                DataContractSerializer serializerForXml = new DataContractSerializer(objToSerialize.GetType());
+                
+                using (FileStream writer = new FileStream(filePath, FileMode.Create))
                 {
-                    serializerForXml.Serialize(writer, objToSerialize);
+                    serializerForXml.WriteObject(writer, objToSerialize);
                 }
             }
             catch (Exception e)
@@ -32,16 +32,16 @@ namespace UnknownElementsEditor
             }
         }
 
-        public static T ReadFromXml<T>(string path)
+        public static T ReadFromXml<T>(string filePath)
         {
             try
             {
-                XmlSerializer serializerForXml = new XmlSerializer(typeof(T));
+                DataContractSerializer serializerForXml = new DataContractSerializer(typeof(T));
 
-                using (Stream reader = new FileStream(path, FileMode.Open))
+                using (FileStream reader = new FileStream(filePath, FileMode.Open))
                 {
-                    T deserializedObj = (T)serializerForXml.Deserialize(reader);
-                    return deserializedObj;
+                    T deserializedObject = (T)serializerForXml.ReadObject(reader);
+                    return deserializedObject;
                 }
             }
             catch (Exception e)

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ProjectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <projectFileName>tempProjectName.unknownelements</projectFileName>
-  <projectType>Empty 2D Project</projectType>
-  <projectFolders>
-    <string>.UnknownElements</string>
-    <string>Content</string>
-    <string>GameCode</string>
-  </projectFolders>
+<ProjectTemplate xmlns="http://schemas.datacontract.org/2004/07/UnknownElementsEditor.GameProject"
+				xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<projectFileName>project.unknownelements</projectFileName>
+	<projectFolders xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+		<a:string>.UnknownElements</a:string>
+		<a:string>Content</a:string>
+		<a:string>GameCode</a:string>
+	</projectFolders>
+	<projectType>Empty 2D Project</projectType>
 </ProjectTemplate>

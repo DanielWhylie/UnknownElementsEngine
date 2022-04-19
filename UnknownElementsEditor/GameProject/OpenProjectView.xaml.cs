@@ -24,5 +24,24 @@ namespace UnknownElementsEditor.GameProject
         {
             InitializeComponent();
         }
+
+        public void OnCreateButtonClick(Object sender, RoutedEventArgs e)
+        {
+            if (sender == openProjectButton)
+            {
+                UserProject project = OpenProject.OpenUserProject(projectListBox.SelectedItem as ProjectInfo);
+
+                bool dialogResult = false;
+
+                if (project != null)
+                {
+                    dialogResult = true;
+                }
+
+                Window.GetWindow(this).DialogResult = dialogResult;
+                Window.GetWindow(this).Close();
+            }
+
+        }
     }
 }

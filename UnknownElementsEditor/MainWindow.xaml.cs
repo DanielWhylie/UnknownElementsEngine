@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace UnknownElementsEditor
         {
             InitializeComponent();
             Loaded += OnMainWindowLoaded;
+            Closing += OnMainWindowClosing;
         }
 
         private void OnMainWindowLoaded(object sender, RoutedEventArgs e)
@@ -33,17 +35,32 @@ namespace UnknownElementsEditor
             OpenProjectBrowserWin();
         }
 
+        private void OnMainWindowClosing(object sender, CancelEventArgs e)
+        {
+            Closing -= OnMainWindowClosing;
+
+            if (UserProject.currentLoadedProject != null)
+            {
+                UserProject.currentLoadedProject.UnloadProject();
+            }
+        }
+
         private void OpenProjectBrowserWin()
         {
             ProjectBrowserWin projectBrowser = new ProjectBrowserWin();
 
-            if (projectBrowser.ShowDialog() == false)
+            if (projectBrowser.ShowDialog() == false || projectBrowser.DataContext == null)
             {
                 Application.Current.Shutdown();
             }
             else
             {
+                if (UserProject.currentLoadedProject != null)
+                {
+                    UserProject.currentLoadedProject.UnloadProject();
+                }
 
+                DataContext = projectBrowser.DataContext;
             }
         }
     }

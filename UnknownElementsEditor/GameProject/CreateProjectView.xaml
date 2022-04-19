@@ -18,7 +18,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <!--<TextBlock Text="IMG Text" Width="50" Height="50"/>-->
-                            <TextBlock Text="{Binding projectType}" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding projectType, StringFormat=>{0}}" VerticalAlignment="Center"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

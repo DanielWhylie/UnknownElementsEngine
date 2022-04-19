@@ -51,18 +51,29 @@ namespace UnknownElementsEditor.GameProject
         {
             if (sender == createButton)
             {
-                var dContext = DataContext as NewProject;
+                NewProject dContext = DataContext as NewProject;
                 string projectPath = dContext.CreateProject(templatesListBox.SelectedItem as ProjectTemplate);
 
                 bool dialogResult = false;
+                Window window = Window.GetWindow(this);
 
                 if (!String.IsNullOrEmpty(projectPath))
                 {
                     dialogResult = true;
+
+                    ProjectInfo projectInfo = new ProjectInfo
+                    {
+                        projectName = dContext.ProjectName,
+                        projectPath = projectPath
+                    };
+
+                    UserProject project = OpenProject.OpenUserProject(projectInfo);
+
+                    window.DataContext = project;
                 }
 
-                Window.GetWindow(this).DialogResult = dialogResult;
-                Window.GetWindow(this).Close();
+                window.DialogResult = dialogResult;
+                window.Close();
             }
             
         }

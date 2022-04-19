@@ -87,6 +87,49 @@ namespace UnknownElementsEditor.GameProject
             }
         }
 
+        private ObservableCollection<ProjectTemplate> _projectTemplates = new ObservableCollection<ProjectTemplate>();
+        public ReadOnlyObservableCollection<ProjectTemplate> ProjectTemplates { get; }
+
+        public NewProject()
+        {
+            ProjectTemplates = new ReadOnlyObservableCollection<ProjectTemplate>(_projectTemplates);
+
+            try
+            {
+                String[] templateFiles = Directory.GetFiles(_templatePath, "template.xml", SearchOption.AllDirectories);
+
+                Debug.Assert(templateFiles.Any());
+
+                foreach (string file in templateFiles)
+                {
+                    //ProjectTemplate emptyTemplate = new ProjectTemplate()
+                    //{
+                    //    projectFileName = "tempProjectName.unknownelements",
+                    //    projectType = "Empty 2D Project",
+                    //    projectFolders = new List<string>() { ".UnknownElements", "Content", "GameCode" }
+                    //};
+
+                    //Serializer.WriteToXml(emptyTemplate, file);
+
+                    ProjectTemplate template = Serializer.ReadFromXml<ProjectTemplate>(file);
+
+                    template.projectFilePath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(file), template.projectFileName));
+
+                    template.projectScreenshotPath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(file), "Screenshot.png"));
+                    template.projectScreenshot = File.ReadAllBytes(template.projectScreenshotPath);
+
+                    _projectTemplates.Add(template);
+
+                    IsValidProjectPath();
+                }
+            }
+            catch (Exception e)
+            {
+                //TODO: Change debug output
+                Debug.WriteLine(e);
+            }
+        }
+
         private bool IsValidProjectPath()
         {
             string path = ProjectPath;
@@ -127,9 +170,6 @@ namespace UnknownElementsEditor.GameProject
 
             return ValidPath;
         }
-
-        private ObservableCollection<ProjectTemplate> _projectTemplates = new ObservableCollection<ProjectTemplate>();
-        public ReadOnlyObservableCollection<ProjectTemplate> ProjectTemplates { get; }
 
         public string CreateProject(ProjectTemplate template)
         {
@@ -177,46 +217,6 @@ namespace UnknownElementsEditor.GameProject
 
                 Debug.WriteLine(e.Message);
                 return String.Empty;
-            }
-        }
-
-        public NewProject()
-        {
-            ProjectTemplates = new ReadOnlyObservableCollection<ProjectTemplate>(_projectTemplates);
-
-            try
-            {
-                String[] templateFiles = Directory.GetFiles(_templatePath, "template.xml", SearchOption.AllDirectories);
-                
-                Debug.Assert(templateFiles.Any());
-
-                foreach (string file in templateFiles)
-                {
-                    //ProjectTemplate emptyTemplate = new ProjectTemplate()
-                    //{
-                    //    projectFileName = "tempProjectName.unknownelements",
-                    //    projectType = "Empty 2D Project",
-                    //    projectFolders = new List<string>() { ".UnknownElements", "Content", "GameCode" }
-                    //};
-
-                    //Serializer.WriteToXml(emptyTemplate, file);
-
-                    ProjectTemplate template = Serializer.ReadFromXml<ProjectTemplate>(file);
-
-                    template.projectFilePath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(file), template.projectFileName));
-
-                    template.projectScreenshotPath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(file), "Screenshot.png"));
-                    template.projectScreenshot = File.ReadAllBytes(template.projectScreenshotPath);
-
-                    _projectTemplates.Add(template);
-
-                    IsValidProjectPath();
-                }
-            }
-            catch (Exception e)
-            {
-                //TODO: Change debug output
-                Debug.WriteLine(e);
             }
         }
 

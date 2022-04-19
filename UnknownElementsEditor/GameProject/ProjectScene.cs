@@ -29,6 +29,21 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public UserProject project { get; private set; }
 
+        private bool _isActive;
+        [DataMember]
+        public bool IsActive
+        {
+            get => _isActive;
+            set
+            {
+                if (_isActive != value)
+                {
+                    _isActive = value;
+                    OnPropertyChanged(nameof(IsActive));
+                }
+            }
+        }
+
         public ProjectScene(string sceneName, UserProject proj)
         {
             Debug.Assert(proj != null);

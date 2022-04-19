@@ -6,55 +6,43 @@
              xmlns:local="clr-namespace:UnknownElementsEditor.GameProject"
              mc:Ignorable="d" Height="450" Width="800"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <local:OpenProject/>
+    </UserControl.DataContext>
+    
     <StackPanel Background="LightGray">
         <StackPanel Orientation="Horizontal">
-            <ListBox Width="200" Height="200" Margin="20">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="IMG Text" Width="50" Height="50"/>
-                    <TextBlock Text="2D Platformer" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="IMG Text" Width="50" Height="50"/>
-                    <TextBlock Text="2D Top Down" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="IMG Text" Width="50" Height="50"/>
-                    <TextBlock Text="Temp" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="IMG Text" Width="50" Height="50"/>
-                    <TextBlock Text="Temp" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="IMG Text" Width="50" Height="50"/>
-                    <TextBlock Text="Temp" VerticalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="IMG Text" Width="50" Height="50"/>
-                    <TextBlock Text="Temp" VerticalAlignment="Center"/>
-                </StackPanel>
+            <ListBox SelectedIndex="0" Width="200" Height="200" Margin="20" ItemsSource="{Binding ProjectInfos}" x:Name="projectListBox">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<TextBlock Text="IMG Text" Width="50" Height="50"/>-->
+                            <TextBlock  VerticalAlignment="Center">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat=">{0}({1})">
+                                        <Binding Path="projectName"/>
+                                        <Binding Path="projectPath"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="60,100,0,0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="410" Height="30" Margin="0,0,0,5">
-                    <TextBlock Text="Project Name:" Width="75" Height="20" />
-                    <TextBox Text="{Binding ProjectName}" Width="300" Height="20"/>
-                </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="150,100,0,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <Button Content="Open" Width="100" IsDefault="True"/>
+                    <Button Content="Open" Width="100" IsDefault="True" Click="OnCreateButtonClick" x:Name="openProjectButton"/>
                     <Button Content="Exit" Width="100" IsCancel="True" Margin="10,0,0,0"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
-        
+
         <StackPanel>
-            <Border Height="210" Background="LightCyan">
-                <TextBlock Text="IMG Display"/>
+            <Border Width="600" Height="200" Margin="0,0,0,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding Path=SelectedItem.screenshot, ElementName=projectListBox}"/>
+                </Border.Background>
             </Border>
         </StackPanel>
     </StackPanel>

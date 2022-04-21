@@ -30,3 +30,10 @@ D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownEleme
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.CopyComplete
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\GameEditorView.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\GameEditorView.baml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Licensing.dll
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Shared.WPF.dll
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Tools.WPF.dll
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Shared.WPF.xml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Tools.WPF.xml

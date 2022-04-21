@@ -23,9 +23,10 @@ namespace UnknownElementsEditor.GameProject
         public OpenProjectView()
         {
             InitializeComponent();
+
         }
 
-        public void OnCreateButtonClick(Object sender, RoutedEventArgs e)
+        public void OnOpenButtonClick(Object sender, RoutedEventArgs e)
         {
             if (sender == openProjectButton)
             {
@@ -38,6 +39,7 @@ namespace UnknownElementsEditor.GameProject
                     dialogResult = true;
                 }
 
+                Window.GetWindow(this).DataContext = project;
                 Window.GetWindow(this).DialogResult = dialogResult;
                 Window.GetWindow(this).Close();
             }

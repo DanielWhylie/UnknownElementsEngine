@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace UnknownElementsEditor.GameProject
 {
     [DataContract]
-    class ProjectScene : ViewModelTemplate
+    public class ProjectScene : ViewModelTemplate
     {
         private string _sceneName;
         [DataMember]
@@ -44,6 +45,10 @@ namespace UnknownElementsEditor.GameProject
             }
         }
 
+        [DataMember(Name = "Assets")]
+        private ObservableCollection<GameEntity> _sceneAssets= new ObservableCollection<GameEntity>();
+        public ReadOnlyObservableCollection<GameEntity> SceneAssets { get; private set; }
+
         public ProjectScene(string sceneName, UserProject proj)
         {
             Debug.Assert(proj != null);
@@ -53,6 +58,19 @@ namespace UnknownElementsEditor.GameProject
         }
         //TODO: add list of game entities
 
+        public void AddAssetToScene(string name)
+        {
+            Debug.Assert(!String.IsNullOrWhiteSpace(name));
+
+            _sceneAssets.Add(new GameEntity(this, name));
+        }
+
+        public void RemoveAssetFromScene(GameEntity asset)
+        {
+            Debug.Assert(_sceneAssets.Contains(asset));
+
+            _sceneAssets.Remove(asset);
+        }
 
     }
 }

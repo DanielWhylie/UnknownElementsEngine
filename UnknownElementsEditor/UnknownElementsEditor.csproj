@@ -44,6 +44,15 @@
     <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=20.1460.0.50, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.20.1.0.50\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=20.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.20.1.0.50\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.WPF, Version=20.1460.0.50, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.WPF.20.1.0.50\lib\net46\Syncfusion.Tools.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -70,10 +79,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataTypes.cs" />
+    <Compile Include="Editor\GameEditor\GameEditorView.xaml.cs">
+      <DependentUpon>GameEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameProject\Components\Gravity.cs" />
+    <Compile Include="GameProject\Entities\Square.cs" />
+    <Compile Include="GameProject\EntityComponent.cs" />
+    <Compile Include="GameProject\GameEntity.cs" />
     <Compile Include="GameProject\OpenProject.cs" />
     <Compile Include="GameProject\ProjectScene.cs" />
     <Compile Include="GameProject\UserProject.cs" />
     <Compile Include="Utilities\Serializer.cs" />
+    <Page Include="Editor\GameEditor\GameEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameProject\CreateProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="UnknownElementsEditor.Editor.GameEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UnknownElementsEditor.Editor"
+             xmlns:project="clr-namespace:UnknownElementsEditor.GameProject"
+             xmlns:gamepro="clr-namespace:UnknownElementsEditor.GameProject"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             mc:Ignorable="d"   Background="LightGray"
+             d:DataContext="{d:DesignInstance Type=project:UserProject, IsDesignTimeCreatable=True}"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Background="Gray">
+            <Border Height="5" Background="#f0f0f0"/>
+            <TextBlock FontSize="14" Padding="5,0,0,3">
+                <TextBlock.Text>
+                    <Binding Path="projectName" StringFormat=">{0}"/>
+                </TextBlock.Text>
+            </TextBlock>
+            <Button Width="100" Height="25" Content="Add Scene" Background="White" Click="OnAddSceneButtonClick" x:Name="addSceneButton"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding projectScenes}" x:Name="sceneItemControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Expander Header="{Binding SceneName}" Background="White" IsExpanded="{Binding IsActive}">
+                                <Border Height="50" Background="LightPink"/>
+                            </Expander>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="Gray">
+            <Border Height="5" Background="#f0f0f0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="Gray">
+            <Border Height="5" Background="#f0f0f0"/>
+        </StackPanel>
+
+        <!--<Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="File" Height="20" Width="30">
+                <MenuItem Header="Save Project" Click="OnMenuClick" x:Name="saveMenuItem"/>
+                --><!--<MenuItem Header="Open Project">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding fullProjectPath, Mode=OneWay}" Width="200" Height="20" x:Name="openProjectPathTextBox"/>
+                        <Button Content="..." Width="25" Height="20" Margin="5" Padding="1,-3,0,4" x:Name="fileBrowseButton" Click="OnBrowseFileButtonClick"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Open" HorizontalAlignment="Center" Click="OnMenuClick" x:Name="openProjectButton"/>
+                        <TextBlock Foreground="Red" TextAlignment="Center" Width="200" Height="20" x:Name="openErrorTextblock"/>
+                    </StackPanel>
+                </MenuItem>--><!--
+            </MenuItem>
+            <MenuItem Header="Exit" Click="OnMenuClick" x:Name="exitMenuItem"/>
+        </Menu>-->
+
+        <StackPanel><!--width 640 height 320-->
+            <Menu Height="20" VerticalAlignment="Top">
+                <MenuItem Header="File" Height="20" Width="30">
+                    <MenuItem Header="Save Project" Click="OnMenuClick" x:Name="saveMenuItem"/>
+                    <!--<MenuItem Header="Open Project">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding fullProjectPath, Mode=OneWay}" Width="200" Height="20" x:Name="openProjectPathTextBox"/>
+                        <Button Content="..." Width="25" Height="20" Margin="5" Padding="1,-3,0,4" x:Name="fileBrowseButton" Click="OnBrowseFileButtonClick"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Open" HorizontalAlignment="Center" Click="OnMenuClick" x:Name="openProjectButton"/>
+                        <TextBlock Foreground="Red" TextAlignment="Center" Width="200" Height="20" x:Name="openErrorTextblock"/>
+                    </StackPanel>
+                </MenuItem>-->
+                </MenuItem>
+                <MenuItem Header="Exit" Click="OnMenuClick" x:Name="exitMenuItem"/>
+            </Menu>
+            <!--<gamepro:CreateProjectView/>-->
+        </StackPanel>
+        
+        <!--<syncfusion:DockingManager>
+            <ContentControl syncfusion:DockingManager.DesiredHeightInDockedMode="150" syncfusion:DockingManager.DesiredWidthInDockedMode="150" syncfusion:DockingManager.Header="Scenes" syncfusion:DockingManager.SideInDockedMode="Right"/>
+            <ContentControl syncfusion:DockingManager.DesiredWidthInDockedMode="150" syncfusion:DockingManager.Header="Scenes" syncfusion:DockingManager.SideInDockedMode="Right"/>
+        </syncfusion:DockingManager>-->
+
+    </Grid>
+</UserControl>

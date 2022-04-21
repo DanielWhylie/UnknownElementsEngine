@@ -12,19 +12,19 @@ using System.IO;
 namespace UnknownElementsEditor.GameProject
 {
     [DataContract(Name = "Game")]
-    class UserProject : ViewModelTemplate
+    public class UserProject : ViewModelTemplate
     {
         public static string fileExtention { get; } = ".unknownelements";
         [DataMember]
         public string projectName { get; private set; } = "project";
         [DataMember]
         public string projectPath { get; private set; }
-        public string fullProjectPath => $@"{projectPath}{projectName}{fileExtention}";
+        public string fullProjectPath => $@"{projectPath}{projectName}{Path.DirectorySeparatorChar.ToString()}{projectName}{UserProject.fileExtention}";
         [DataMember(Name = "Scenes")]
         private ObservableCollection<ProjectScene> _projectScenes = new ObservableCollection<ProjectScene>();
-        public ReadOnlyObservableCollection<ProjectScene> ProjectScenes { get; private set; }
+        public ReadOnlyObservableCollection<ProjectScene> projectScenes { get; private set; }
         public static UserProject currentLoadedProject = (UserProject)Application.Current.MainWindow.DataContext;
-        public ProjectScene _activeScene;
+        private ProjectScene _activeScene;
         [DataMember]
         public ProjectScene ActiveScene
         {
@@ -62,7 +62,21 @@ namespace UnknownElementsEditor.GameProject
 
         public void UnloadProject()
         {
-            currentLoadedProject = null;
+
+        }
+
+        public void AddSceneToProject(string name)
+        {
+            Debug.Assert(!String.IsNullOrWhiteSpace(name));
+
+            _projectScenes.Add(new ProjectScene(name, this));
+        }
+
+        public void RemoveSceneFromProject(ProjectScene scene)
+        {
+            Debug.Assert(_projectScenes.Contains(scene));
+
+            _projectScenes.Remove(scene);
         }
 
         [OnDeserialized]
@@ -70,9 +84,9 @@ namespace UnknownElementsEditor.GameProject
         {
             if (_projectScenes != null)
             {
-                ProjectScenes = new ReadOnlyObservableCollection<ProjectScene>(_projectScenes);
-                OnPropertyChanged(nameof(ProjectScenes));
-                ActiveScene = ProjectScenes.FirstOrDefault(x => x.IsActive);
+                projectScenes = new ReadOnlyObservableCollection<ProjectScene>(_projectScenes);
+                OnPropertyChanged(nameof(projectScenes));
+                ActiveScene = projectScenes.FirstOrDefault(x => x.IsActive);
             }
         }
     }

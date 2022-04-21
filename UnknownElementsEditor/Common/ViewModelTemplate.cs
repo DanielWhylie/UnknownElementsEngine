@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace UnknownElementsEditor
 {
     [DataContract(IsReference = true)]
-    class ViewModelTemplate : INotifyPropertyChanged
+    public class ViewModelTemplate : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -60,5 +60,10 @@ namespace UnknownElementsEditor.GameProject
                 unknownNewsButton.IsChecked = true;
             }
         }
+
+        private void CreateProjectView_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

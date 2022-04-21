@@ -32,7 +32,7 @@
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="150,100,0,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <Button Content="Open" Width="100" IsDefault="True" Click="OnCreateButtonClick" x:Name="openProjectButton"/>
+                    <Button Content="Open" Width="100" IsDefault="True" Click="OnOpenButtonClick" x:Name="openProjectButton"/>
                     <Button Content="Exit" Width="100" IsCancel="True" Margin="10,0,0,0"/>
                 </StackPanel>
             </StackPanel>

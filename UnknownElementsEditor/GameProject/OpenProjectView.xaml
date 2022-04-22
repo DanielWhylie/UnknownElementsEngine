@@ -16,7 +16,6 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <!--<TextBlock Text="IMG Text" Width="50" Height="50"/>-->
                             <TextBlock  VerticalAlignment="Center">
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat=">{0}({1})">

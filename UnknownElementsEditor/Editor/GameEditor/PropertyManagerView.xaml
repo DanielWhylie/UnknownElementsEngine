@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="UnknownElementsEditor.Editor.PropertyManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UnknownElementsEditor.Editor"
+             xmlns:project="clr-namespace:UnknownElementsEditor.GameProject"
+             xmlns:projectComponents="clr-namespace:UnknownElementsEditor.GameProject"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type projectComponents:Transform}">
+            <local:TransformView/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBlock Text="Properties:" FontSize="14" FontWeight="SemiBold"/>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="Asset Name:" Margin="0,0,10,0"/>
+            <TextBox Width="260" Text="{Binding EntityName}" KeyDown="OnRenameTextBoxChange"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,0">
+            <Button Content="Add Component" Margin="0,0,0,0"/>
+        </StackPanel>
+        <ItemsControl ItemsSource="{Binding EntityComponents}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

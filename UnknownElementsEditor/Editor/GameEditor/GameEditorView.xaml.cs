@@ -90,15 +90,5 @@ namespace UnknownElementsEditor.Editor
         //    }
         //}
 
-    public void OnAddSceneButtonClick(Object sender, RoutedEventArgs e)
-        {
-            if (sender == addSceneButton)
-            {
-                UserProject dContext = DataContext as UserProject;
-
-                dContext.AddSceneToProject("Scene " + dContext.projectScenes.Count());
-            }
-        }
-
     }
 }

@@ -80,10 +80,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataTypes.cs" />
+    <Compile Include="Editor\GameEditor\ComponentView.xaml.cs">
+      <DependentUpon>ComponentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameEditor\ComponentViews\TransformView.xaml.cs">
+      <DependentUpon>TransformView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Editor\GameEditor\GameEditorView.xaml.cs">
       <DependentUpon>GameEditorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Editor\GameEditor\PropertyManagerView.xaml.cs">
+      <DependentUpon>PropertyManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameEditor\SceneAssetManagerView.xaml.cs">
+      <DependentUpon>SceneAssetManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameProject\Components\Gravity.cs" />
+    <Compile Include="GameProject\Components\Transform.cs" />
+    <Compile Include="GameProject\Components\BoxCollider2D.cs" />
+    <Compile Include="GameProject\Entities\Circle.cs" />
     <Compile Include="GameProject\Entities\Square.cs" />
     <Compile Include="GameProject\EntityComponent.cs" />
     <Compile Include="GameProject\GameEntity.cs" />
@@ -91,7 +106,23 @@
     <Compile Include="GameProject\ProjectScene.cs" />
     <Compile Include="GameProject\UserProject.cs" />
     <Compile Include="Utilities\Serializer.cs" />
+    <Page Include="Editor\GameEditor\ComponentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\GameEditor\ComponentViews\TransformView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Editor\GameEditor\GameEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\GameEditor\PropertyManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\GameEditor\SceneAssetManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

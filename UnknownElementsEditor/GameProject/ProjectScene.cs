@@ -55,12 +55,18 @@ namespace UnknownElementsEditor.GameProject
 
             SceneName = sceneName;
             project = proj;
+
+            OnDesirialized(new StreamingContext());
         }
         //TODO: add list of game entities
 
         public void AddAssetToScene(string name)
         {
             Debug.Assert(!String.IsNullOrWhiteSpace(name));
+
+            GameEntity newAsset = new GameEntity(this, name);
+
+            Debug.Assert(!_sceneAssets.Contains(newAsset));
 
             _sceneAssets.Add(new GameEntity(this, name));
         }
@@ -72,5 +78,14 @@ namespace UnknownElementsEditor.GameProject
             _sceneAssets.Remove(asset);
         }
 
+        [OnDeserialized]
+        private void OnDesirialized(StreamingContext streamingContext)
+        {
+            if (_sceneAssets != null)
+            {
+                SceneAssets = new ReadOnlyObservableCollection<GameEntity>(_sceneAssets);
+                OnPropertyChanged(nameof(SceneAssets));
+            }
+        }
     }
 }

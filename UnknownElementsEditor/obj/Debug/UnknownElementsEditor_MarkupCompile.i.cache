@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\App.xaml
-5-2035466389
+9-1314883321
 
-21-1067386839
+281753473736
 21573635010
-Editor\GameEditor\GameEditorView.xaml;GameProject\CreateProjectView.xaml;GameProject\OpenProjectView.xaml;GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
+Editor\GameEditor\ComponentView.xaml;Editor\GameEditor\ComponentViews\TransformView.xaml;Editor\GameEditor\GameEditorView.xaml;Editor\GameEditor\PropertyManagerView.xaml;Editor\GameEditor\SceneAssetManagerView.xaml;GameProject\CreateProjectView.xaml;GameProject\OpenProjectView.xaml;GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
 
-False
+True
 

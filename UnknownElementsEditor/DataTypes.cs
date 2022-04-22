@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace UnknownElementsEditor
 {
+    [DataContract]
     public class Vector2D
     {
-        public float X;
-        public float Y;
+        [DataMember]
+        public float X { get; set; }
+        [DataMember]
+        public float Y { get; set; }
 
         public Vector2D(float vectorX = 0, float vectorY = 0)
         {

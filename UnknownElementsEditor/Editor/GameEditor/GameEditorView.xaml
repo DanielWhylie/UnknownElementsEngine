@@ -35,8 +35,8 @@
             <Border Height="5" Background="#f0f0f0"/>
         </StackPanel>
         
-        <StackPanel><!--width 640 height 320-->
-            <Menu Height="20" VerticalAlignment="Top">
+        <StackPanel Grid.Row="0" Grid.Column="0"><!--width 640 height 320-->
+            <Menu Height="25" VerticalAlignment="Top" Padding="3">
                 <MenuItem Header="File" Height="20" Width="30">
                     <MenuItem Header="Save Project" Click="OnMenuClick" x:Name="saveMenuItem"/>
                     <!--<MenuItem Header="Open Project">
@@ -51,8 +51,10 @@
                 </MenuItem>-->
                 </MenuItem>
                 <MenuItem Header="Exit" Click="OnMenuClick" x:Name="exitMenuItem"/>
+                <MenuItem Header="Fullscreen" Click="OnMenuClick" x:Name="fullScreenMenuItem"/>
+                <MenuItem Header="Windowedscreen" Click="OnMenuClick" IsEnabled="False" x:Name="windowedscreenMenuItem"/>
             </Menu>
-            <!--<gamepro:CreateProjectView/>-->
+            <gameEdit:GraphicalEditorView/>
         </StackPanel>
         
         <!--<syncfusion:DockingManager>

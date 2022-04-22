@@ -60,15 +60,11 @@ namespace UnknownElementsEditor.GameProject
         }
         //TODO: add list of game entities
 
-        public void AddAssetToScene(string name)
+        public void AddAssetToScene(GameEntity asset)
         {
-            Debug.Assert(!String.IsNullOrWhiteSpace(name));
+            Debug.Assert(!_sceneAssets.Contains(asset));
 
-            GameEntity newAsset = new GameEntity(this, name);
-
-            Debug.Assert(!_sceneAssets.Contains(newAsset));
-
-            _sceneAssets.Add(new GameEntity(this, name));
+            _sceneAssets.Add(asset);
         }
 
         public void RemoveAssetFromScene(GameEntity asset)

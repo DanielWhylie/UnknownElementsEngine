@@ -18,12 +18,6 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public Vector2D Size { get; set; }
 
-        public Square()
-        {
-            IsVisable = true;
-            Size = new Vector2D(10, 10);
-        }
-
         public Square(ProjectScene scene, string name) : base(scene, name)
         {
             EntityName = name;

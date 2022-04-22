@@ -20,12 +20,6 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public bool IsFilled { get; set; }
 
-        public Circle()
-        {
-            IsVisable = true;
-            Radius = 10;
-        }
-
         public Circle(ProjectScene scene, string name)
         {
             EntityName = name;

@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
@@ -71,8 +71,11 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WriteableBitmapEx.Wpf, Version=1.6.8.0, Culture=neutral, PublicKeyToken=50375ca6144f1c69, processorArchitecture=MSIL">
+      <HintPath>..\packages\WriteableBitmapEx.1.6.8\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -83,11 +86,20 @@
     <Compile Include="Editor\GameEditor\ComponentView.xaml.cs">
       <DependentUpon>ComponentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Editor\GameEditor\ComponentViews\BoxCollider2DView.xaml.cs">
+      <DependentUpon>BoxCollider2DView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameEditor\ComponentViews\GravityView.xaml.cs">
+      <DependentUpon>GravityView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Editor\GameEditor\ComponentViews\TransformView.xaml.cs">
       <DependentUpon>TransformView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Editor\GameEditor\GameEditorView.xaml.cs">
       <DependentUpon>GameEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameEditor\GraphicalEditorView.xaml.cs">
+      <DependentUpon>GraphicalEditorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Editor\GameEditor\PropertyManagerView.xaml.cs">
       <DependentUpon>PropertyManagerView.xaml</DependentUpon>
@@ -110,11 +122,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Editor\GameEditor\ComponentViews\BoxCollider2DView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\GameEditor\ComponentViews\GravityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Editor\GameEditor\ComponentViews\TransformView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Editor\GameEditor\GameEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\GameEditor\GraphicalEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

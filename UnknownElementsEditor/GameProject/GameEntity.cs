@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 namespace UnknownElementsEditor.GameProject
 {
     [DataContract]
+    [KnownType(typeof(UnknownElementsEditor.GameProject.Circle))]
+    [KnownType(typeof(UnknownElementsEditor.GameProject.Square))]
     public class GameEntity : ViewModelTemplate
     {
         private string _entityName;
@@ -42,6 +44,7 @@ namespace UnknownElementsEditor.GameProject
 
             OnDesirialized(new StreamingContext());
             _entityComponents.Add(new Transform(this));
+
         }
 
         public GameEntity(ProjectScene scene, string name)
@@ -52,11 +55,13 @@ namespace UnknownElementsEditor.GameProject
 
             OnDesirialized(new StreamingContext());
             _entityComponents.Add(new Transform(this));
+
         }
 
-        public void AddComponentToEntity()
+        public void AddComponentToEntity(EntityComponent component)
         {
-            _entityComponents.Add(new EntityComponent(this));
+            //_entityComponents.Add(new EntityComponent(this));
+            _entityComponents.Add(component);
         }
 
         public void RemoveComponentFromEntity(EntityComponent component)
@@ -74,6 +79,7 @@ namespace UnknownElementsEditor.GameProject
                 EntityComponents = new ReadOnlyObservableCollection<EntityComponent>(_entityComponents);
                 OnPropertyChanged(nameof(EntityComponents));
             }
+
         }
     }
 }

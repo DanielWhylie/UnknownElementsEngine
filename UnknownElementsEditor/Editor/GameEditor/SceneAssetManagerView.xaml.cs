@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,14 +46,20 @@ namespace UnknownElementsEditor.Editor.GameEditor
             dContext.RemoveSceneFromProject(removeButton.Tag as ProjectScene);
         }
 
-        public void OnAddAssetButtonClick(Object sender, RoutedEventArgs e)
+        public void OnAssetAdd(Object sender, RoutedEventArgs e)
         {
-            UserProject dContext = DataContext as UserProject;
-            Button addAssetButton = sender as Button;
-
+            MenuItem addAssetButton = sender as MenuItem;
             ProjectScene scene = addAssetButton.Tag as ProjectScene;
+            Debug.Assert(!String.IsNullOrWhiteSpace(addAssetButton.Header.ToString()));
 
-            scene.AddAssetToScene("GameObject " + scene.SceneAssets.Count());
+            if (addAssetButton.Header.ToString() == "Square")
+            {
+                scene.AddAssetToScene(new Square(scene, addAssetButton.Header.ToString()));
+            }
+            else if (addAssetButton.Header.ToString() == "Circle")
+            {
+                scene.AddAssetToScene(new Circle(scene, addAssetButton.Header.ToString()));
+            }
         }
         public void OnRemoveAssetButtonClick(Object sender, RoutedEventArgs e)
         {

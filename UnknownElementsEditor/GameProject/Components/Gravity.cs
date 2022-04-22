@@ -13,7 +13,7 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public bool IsWeightless { get; set; }
         [DataMember]
-        public float acceleration { get; set; }
+        public float Acceleration { get; set; }
 
         public Gravity(GameEntity asset) : base(asset)
         {
@@ -25,7 +25,7 @@ namespace UnknownElementsEditor.GameProject
         {
             if (!IsWeightless)
             {
-                transform.Position.Y += (transform.Mass * acceleration);
+                transform.Position.Y += (transform.Mass * Acceleration);
             }
         }
     }

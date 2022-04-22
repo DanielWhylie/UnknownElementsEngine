@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UnknownElementsEditor.GameProject;
 
 namespace UnknownElementsEditor.Editor
 {
@@ -23,6 +24,28 @@ namespace UnknownElementsEditor.Editor
         public TransformView()
         {
             InitializeComponent();
+        }
+
+        public void OnRemoveButtonClick(Object sender, RoutedEventArgs e)
+        {
+            UnknownElementsEditor.GameProject.Transform dContext = DataContext as UnknownElementsEditor.GameProject.Transform;
+            GameEntity asset = dContext.GameObject;
+
+            asset.RemoveComponentFromEntity(dContext);
+        }
+
+        public void OnRenameTextBoxChange(Object sender, KeyEventArgs e)
+        {
+            TextBox box = sender as TextBox;
+
+            if (e.Key == Key.Enter)
+            {
+                // Kill logical focus
+                FocusManager.SetFocusedElement(FocusManager.GetFocusScope(box), null);
+
+                // Kill keyboard focus
+                Keyboard.ClearFocus();
+            }
         }
     }
 }

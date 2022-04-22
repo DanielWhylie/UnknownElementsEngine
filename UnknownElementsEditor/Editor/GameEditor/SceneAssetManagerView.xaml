@@ -36,13 +36,21 @@
                                 </StackPanel>
                             </Expander.Header>
                             <StackPanel>
-                                <Button Width="100" Height="25" Content="Add Asset" Background="White" Click="OnAddAssetButtonClick" Tag="{Binding}" x:Name="addAssetButton"/>
+                                <!--<Button Width="100" Height="25" Content="Add Asset" Background="White" Click="OnAddAssetButtonClick" Tag="{Binding}" x:Name="addAssetButton"/>-->
+                                <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0">
+                                    <Menu Height="20" VerticalAlignment="Top">
+                                        <MenuItem Header="Add Asset" Background="White">
+                                            <MenuItem Header="Square" Click="OnAssetAdd" Tag="{Binding}" x:Name="squareMenuItem"/>
+                                            <MenuItem Header="Circle" Click="OnAssetAdd" Tag="{Binding}" x:Name="circleMenuItem"/>
+                                        </MenuItem>
+                                    </Menu>
+                                </StackPanel>
                                 <ListBox SelectedIndex="0" ItemsSource="{Binding SceneAssets}" SelectionChanged="OnAssetListBoxSelectionChange" x:Name="assetListBox">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="{Binding EntityName}" VerticalAlignment="Center"/>
-                                                <Button Content="Remove Scene" Background="White" Click="OnRemoveAssetButtonClick" Tag="{Binding}" x:Name="removeAssetButton" Margin="10,0,0,0"/>
+                                                <Button Content="Remove" Background="White" Click="OnRemoveAssetButtonClick" Tag="{Binding}" x:Name="removeAssetButton" Margin="10,0,0,0"/>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>

@@ -11,7 +11,6 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UnknownElementsEditor.GameProject;
@@ -23,6 +22,8 @@ namespace UnknownElementsEditor.Editor
     /// </summary>
     public partial class GameEditorView : UserControl
     {
+        public WindowState winState;
+
         public GameEditorView()
         {
             InitializeComponent();
@@ -63,6 +64,19 @@ namespace UnknownElementsEditor.Editor
                 UserProject.SaveProject(dContext);
 
                 Application.Current.Shutdown();
+            }
+            else if (sender == fullScreenMenuItem)
+            {
+                winState = Application.Current.MainWindow.WindowState;
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+                fullScreenMenuItem.IsEnabled = false;
+                windowedscreenMenuItem.IsEnabled = true;
+            }
+            else if (sender == windowedscreenMenuItem)
+            {
+                Application.Current.MainWindow.WindowState = winState;
+                windowedscreenMenuItem.IsEnabled = false;
+                fullScreenMenuItem.IsEnabled = true;
             }
         }
 

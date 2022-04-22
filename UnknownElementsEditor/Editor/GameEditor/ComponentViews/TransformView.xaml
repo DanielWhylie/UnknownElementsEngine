@@ -15,6 +15,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
@@ -23,20 +25,29 @@
             
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Position:"/>
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                <TextBox Width="100" Text="{Binding Position.X}"/>
-                <TextBox Width="100" Text="{Binding Position.Y}"/>
+                <TextBox Width="100" Text="{Binding Position.X}" KeyDown="OnRenameTextBoxChange"/>
+                <TextBox Width="100" Text="{Binding Position.Y}" KeyDown="OnRenameTextBoxChange"/>
             </StackPanel>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Rotation:" Margin="0,5,0,0"/>
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBox Width="100" Text="{Binding Rotation.X}"/>
-                <TextBox Width="100" Text="{Binding Rotation.Y}"/>
+                <TextBox Width="100" Text="{Binding Rotation.X}" KeyDown="OnRenameTextBoxChange"/>
+                <TextBox Width="100" Text="{Binding Rotation.Y}" KeyDown="OnRenameTextBoxChange"/>
             </StackPanel>
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Size:" Margin="0,5,0,0"/>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBox Width="100" Text="{Binding Size.X}"/>
-                <TextBox Width="100" Text="{Binding Size.Y}"/>
+                <TextBox Width="100" Text="{Binding Size.X}" KeyDown="OnRenameTextBoxChange"/>
+                <TextBox Width="100" Text="{Binding Size.Y}" KeyDown="OnRenameTextBoxChange"/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Mass:" Margin="0,5,0,0"/>
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox Width="100" Text="{Binding Mass}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,0">
+                <Button Content="Remove" Click="OnRemoveButtonClick"/>
             </StackPanel>
         </Grid>
     </local:ComponentView>

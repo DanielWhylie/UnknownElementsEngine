@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Expander IsExpanded="True">
-        <Expander.Header FontSize="14" FontWeight="SemiBold">
-            <TextBlock Text="{Binding Header, ElementName=componentView}"/>
+        <Expander.Header>
+            <TextBlock Text="{Binding Header, ElementName=componentView}" FontSize="14" FontWeight="SemiBold"/>
         </Expander.Header>
         <ContentPresenter Content="{Binding CompContent, ElementName=componentView}"/>
     </Expander>

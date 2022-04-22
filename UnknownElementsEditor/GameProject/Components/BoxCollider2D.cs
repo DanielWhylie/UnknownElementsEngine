@@ -10,9 +10,19 @@ namespace UnknownElementsEditor.GameProject
     [DataContract]
     public class BoxCollider2D : EntityComponent
     {
+        [DataMember]
+        public Vector2D Position { get; set; }
+        [DataMember]
+        public Vector2D Rotation { get; set; }
+        [DataMember]
+        public Vector2D Size { get; set; }
+
         public BoxCollider2D(GameEntity asset) : base(asset)
         {
             GameObject = asset;
+            Position = new Vector2D();
+            Rotation = new Vector2D();
+            Size = new Vector2D(10, 10);
         }
     }
 }

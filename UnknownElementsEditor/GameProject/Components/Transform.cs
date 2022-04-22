@@ -10,7 +10,6 @@ namespace UnknownElementsEditor.GameProject
     [DataContract]
     public class Transform : EntityComponent
     {
-        public string name = "hey";
         [DataMember]
         public Vector2D Position { get; set; }
         [DataMember]
@@ -29,6 +28,7 @@ namespace UnknownElementsEditor.GameProject
 
         public Transform(GameEntity asset) : base(asset)
         {
+            ComponentName = this.GetType().Name;
             GameObject = asset;
             Position = new Vector2D();
             Rotation = new Vector2D();

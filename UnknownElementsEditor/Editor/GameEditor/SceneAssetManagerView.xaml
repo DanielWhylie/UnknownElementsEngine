@@ -15,7 +15,14 @@
                     <Binding Path="projectName" StringFormat=">{0}"/>
                 </TextBlock.Text>
             </TextBlock>
-            <Button Grid.Row="0" Width="100" Height="25" Content="Add Scene" Background="White" Click="OnAddSceneButtonClick" x:Name="addSceneButton"/>
+            <ComboBox SelectedIndex="0" ItemsSource="{Binding projectScenes}" SelectionChanged="OnSelectionChange" Margin="50,0,50,0" x:Name="activateSceneComboBox">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding SceneName, StringFormat=Active Scene: {0}}" TextAlignment="Center"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Grid.Row="0" Width="100" Height="25" Content="Add Scene" Background="White" Click="OnAddSceneButtonClick" Margin="0,5,0,0" x:Name="addSceneButton"/>
         </StackPanel>
 
         <ScrollViewer Grid.Row="1" Height="675" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
@@ -27,8 +34,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Expander  Background="White" IsExpanded="{Binding IsActive}" x:Name="sceneExpander">
-                            <!--Header="{Binding SceneName}"-->
+                        <Expander Background="White" x:Name="sceneExpander">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding SceneName}"/>
@@ -45,7 +51,7 @@
                                         </MenuItem>
                                     </Menu>
                                 </StackPanel>
-                                <ListBox SelectedIndex="0" ItemsSource="{Binding SceneAssets}" SelectionChanged="OnAssetListBoxSelectionChange" x:Name="assetListBox">
+                                <ListBox ItemsSource="{Binding SceneAssets}" SelectionChanged="OnAssetListBoxSelectionChange" x:Name="assetListBox">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">

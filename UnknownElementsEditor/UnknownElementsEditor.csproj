@@ -92,6 +92,9 @@
     <Compile Include="Editor\GameEditor\ComponentViews\GravityView.xaml.cs">
       <DependentUpon>GravityView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Editor\GameEditor\ComponentViews\ScriptView.xaml.cs">
+      <DependentUpon>ScriptView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Editor\GameEditor\ComponentViews\TransformView.xaml.cs">
       <DependentUpon>TransformView.xaml</DependentUpon>
     </Compile>
@@ -104,10 +107,14 @@
     <Compile Include="Editor\GameEditor\PropertyManagerView.xaml.cs">
       <DependentUpon>PropertyManagerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Editor\GameEditor\RunWindow.xaml.cs">
+      <DependentUpon>RunWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Editor\GameEditor\SceneAssetManagerView.xaml.cs">
       <DependentUpon>SceneAssetManagerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameProject\Components\Gravity.cs" />
+    <Compile Include="GameProject\Components\Script.cs" />
     <Compile Include="GameProject\Components\Transform.cs" />
     <Compile Include="GameProject\Components\BoxCollider2D.cs" />
     <Compile Include="GameProject\Entities\Circle.cs" />
@@ -130,6 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Editor\GameEditor\ComponentViews\ScriptView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Editor\GameEditor\ComponentViews\TransformView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Editor\GameEditor\PropertyManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\GameEditor\RunWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

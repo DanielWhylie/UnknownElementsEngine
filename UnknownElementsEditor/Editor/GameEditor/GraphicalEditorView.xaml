@@ -9,9 +9,12 @@
              d:DataContext="{d:DesignInstance Type=project:UserProject, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <!--Width="1555" Height="450"-->
-    <StackPanel x:Name="viewPortContainer">
-        <Image Width="1510" Height="700" x:Name="viewPort" Loaded="StartGraphics" HorizontalAlignment="Left"/>
+    <StackPanel>
+        <StackPanel x:Name="viewPortContainer">
+            <Image Width="1510" Height="700" x:Name="viewPort" Loaded="StartGraphics" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <Button Width="50" Height="20" Content="Play" HorizontalAlignment="Center" Background="White" Click="OnPlayButtonClick" Margin="0,-1370,0,0" x:Name="playButton"/>
     </StackPanel>
 
 </UserControl>

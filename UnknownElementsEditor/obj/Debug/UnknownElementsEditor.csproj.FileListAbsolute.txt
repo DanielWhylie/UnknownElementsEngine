@@ -7,6 +7,7 @@ D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownEleme
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Licensing.dll
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Shared.WPF.dll
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Tools.WPF.dll
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\WriteableBitmapEx.Wpf.dll
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Microsoft.WindowsAPICodePack.pdb
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Microsoft.WindowsAPICodePack.xml
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
@@ -15,7 +16,8 @@ D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownEleme
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Shared.WPF.xml
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\Syncfusion.Tools.WPF.xml
-D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.AssemblyReference.cache
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\WriteableBitmapEx.Wpf.pdb
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\WriteableBitmapEx.Wpf.xml
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\ComponentView.g.cs
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\ComponentViews\BoxCollider2DView.g.cs
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\ComponentViews\GravityView.g.cs
@@ -51,6 +53,8 @@ D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownEleme
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.CopyComplete
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.exe
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.pdb
-D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\WriteableBitmapEx.Wpf.dll
-D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\WriteableBitmapEx.Wpf.pdb
-D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\bin\Debug\WriteableBitmapEx.Wpf.xml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\UnknownElementsEditor.csproj.AssemblyReference.cache
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\RunWindow.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\RunWindow.baml
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\ComponentViews\ScriptView.g.cs
+D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\Editor\GameEditor\ComponentViews\ScriptView.baml

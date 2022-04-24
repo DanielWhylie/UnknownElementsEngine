@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace UnknownElementsEditor.GameProject
 {
@@ -28,7 +29,7 @@ namespace UnknownElementsEditor.GameProject
             }
         }
         [DataMember]
-        public GameEntity EntityType { get; set; }
+        public string EntityType { get; set; }
         [DataMember]
         public ProjectScene AttachedScene { get; set; }
         [DataMember(Name = "Components")]
@@ -37,7 +38,7 @@ namespace UnknownElementsEditor.GameProject
 
         public GameEntity()
         {
-            EntityType = this;
+            EntityType = this.EntityName;
 
             EntityName = null;
             AttachedScene = null;
@@ -51,7 +52,7 @@ namespace UnknownElementsEditor.GameProject
         {
             EntityName = name;
             AttachedScene = scene;
-            EntityType = this;
+            EntityType = this.EntityName;
 
             OnDesirialized(new StreamingContext());
             _entityComponents.Add(new Transform(this));
@@ -70,6 +71,21 @@ namespace UnknownElementsEditor.GameProject
 
             _entityComponents.Remove(component);
         }
+
+        public EntityComponent GetComponent(string componentName)
+        {
+            foreach (EntityComponent component in _entityComponents)
+            {
+                if (component.ComponentName.ToLower() == componentName.ToLower())
+                {
+                    return component;
+                }
+            }
+
+            return null;
+        }
+
+        public virtual void DrawAsset(UnknownElementsEditor.GameProject.Transform transformComponent, WriteableBitmap writeBitMap){}
 
         [OnDeserialized]
         private void OnDesirialized(StreamingContext streamingContext)

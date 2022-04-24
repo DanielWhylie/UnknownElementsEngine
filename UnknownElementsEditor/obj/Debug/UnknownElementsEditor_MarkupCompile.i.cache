@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\App.xaml
-121504971093
+142137671440
 
-311460452116
+34-442863827
 221598386088
-Editor\GameEditor\ComponentView.xaml;Editor\GameEditor\ComponentViews\BoxCollider2DView.xaml;Editor\GameEditor\ComponentViews\GravityView.xaml;Editor\GameEditor\ComponentViews\TransformView.xaml;Editor\GameEditor\GameEditorView.xaml;Editor\GameEditor\GraphicalEditorView.xaml;Editor\GameEditor\PropertyManagerView.xaml;Editor\GameEditor\SceneAssetManagerView.xaml;GameProject\CreateProjectView.xaml;GameProject\OpenProjectView.xaml;GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
+Editor\GameEditor\ComponentView.xaml;Editor\GameEditor\ComponentViews\BoxCollider2DView.xaml;Editor\GameEditor\ComponentViews\GravityView.xaml;Editor\GameEditor\ComponentViews\ScriptView.xaml;Editor\GameEditor\ComponentViews\TransformView.xaml;Editor\GameEditor\GameEditorView.xaml;Editor\GameEditor\GraphicalEditorView.xaml;Editor\GameEditor\PropertyManagerView.xaml;Editor\GameEditor\RunWindow.xaml;Editor\GameEditor\SceneAssetManagerView.xaml;GameProject\CreateProjectView.xaml;GameProject\OpenProjectView.xaml;GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
 
 True
 

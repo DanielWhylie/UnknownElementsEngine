@@ -25,11 +25,10 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public float Mass { get; set; }
 
-
         public Transform(GameEntity asset) : base(asset)
         {
-            ComponentName = this.GetType().Name;
             GameObject = asset;
+            ComponentName = this.GetType().Name;
             Position = new Vector2D();
             Rotation = new Vector2D();
             Size = new Vector2D(10, 10);

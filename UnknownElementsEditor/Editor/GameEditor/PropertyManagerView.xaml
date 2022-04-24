@@ -19,6 +19,9 @@
         <DataTemplate DataType="{x:Type projectComponents:BoxCollider2D}">
             <local:BoxCollider2DView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type projectComponents:Script}">
+            <local:ScriptView/>
+        </DataTemplate>
     </UserControl.Resources>
 
     <StackPanel>
@@ -37,6 +40,7 @@
                     <MenuItem Header="Transform" Click="OnComonentAdd" x:Name="transformMenuItem"/>
                     <MenuItem Header="Gravity" Click="OnComonentAdd" x:Name="gravityMenuItem"/>
                     <MenuItem Header="BoxCollider2D" Click="OnComonentAdd" x:Name="boxCollider2DMenuItem"/>
+                    <MenuItem Header="Script" Click="OnComonentAdd" x:Name="scriptMenuItem"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

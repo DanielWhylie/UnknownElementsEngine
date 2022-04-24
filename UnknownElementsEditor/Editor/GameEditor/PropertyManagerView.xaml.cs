@@ -60,6 +60,10 @@ namespace UnknownElementsEditor.Editor
             {
                 dContext.AddComponentToEntity(new UnknownElementsEditor.GameProject.BoxCollider2D(dContext));
             }
+            else if (sender == scriptMenuItem)
+            {
+                dContext.AddComponentToEntity(new UnknownElementsEditor.GameProject.Script(dContext));
+            }
         }
 
     }

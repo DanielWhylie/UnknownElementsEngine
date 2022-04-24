@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -24,14 +25,13 @@ namespace UnknownElementsEditor.Editor.GameEditor
     /// </summary>
     public partial class GraphicalEditorView : UserControl
     {
-        //[DllImport("user32.dll")]
-        //static extern IntPtr SetParent(IntPtr hwc, IntPtr hwp);
-
         public UserProject dContext;
+        public RunWindow viewWindow;
 
         public GraphicalEditorView()
         {
             InitializeComponent();
+            assetList = new List<GameEntity>();
             Loaded += OnGraphicalEditorViewLoaded;
         }
 
@@ -39,27 +39,16 @@ namespace UnknownElementsEditor.Editor.GameEditor
         {
             Debug.Assert(DataContext != null);
             dContext = DataContext as UserProject;
+            UserProject.SaveProject(dContext);
         }
 
         public int GraphicViewWidth;
         public int GraphicViewHeight;
         public WriteableBitmap writeBitMap;
+        public List<GameEntity> assetList;
+
         public void StartGraphics(object sender, RoutedEventArgs e)
         {
-            //    string[] splitCurrentDirectory = Directory.GetCurrentDirectory().Split(System.IO.Path.DirectorySeparatorChar);
-            //    for (int i = 1; i <= 3; i++)
-            //    {
-            //        splitCurrentDirectory[splitCurrentDirectory.Count() - i] = "";
-            //    }
-            //    splitCurrentDirectory[splitCurrentDirectory.Count() - 3] = System.IO.Path.DirectorySeparatorChar.ToString();
-            //    string enginePath = String.Join(System.IO.Path.DirectorySeparatorChar.ToString(), splitCurrentDirectory) + @"\bin\Debug\netcoreapp3.1\UnknownElementsEngine.exe";
-
-            //    Process p = Process.Start(enginePath);
-            //    p.WaitForInputIdle();
-            //    SetParent(p.MainWindowHandle, );
-
-
-
 
             GraphicViewWidth = (int)viewPort.Width;
             GraphicViewHeight = (int)viewPort.Height;
@@ -70,15 +59,28 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
             CompositionTarget.Rendering += Rendering;
         }
-        public Vector2D pos = new Vector2D(0, 0);
-        public Vector2D siz = new Vector2D(10, 10);
+
         private void Rendering(object sender, EventArgs e)
         {
-            writeBitMap.Clear();
-            pos.X += 1;
-            pos.Y += 1;
+            ProjectScene activeScene = dContext.ActiveScene;
 
-            writeBitMap.FillEllipse((int)pos.X, (int)pos.Y, (int)pos.X + (int)siz.X, (int)pos.Y + (int)siz.Y, Colors.Red);
+            writeBitMap.Clear();
+
+            foreach (GameEntity asset in activeScene.SceneAssets)
+            {
+                UnknownElementsEditor.GameProject.Transform transformComponent = (UnknownElementsEditor.GameProject.Transform)asset.GetComponent("Transform");
+
+                asset.DrawAsset(transformComponent, writeBitMap);
+            }
+        }
+
+        private void OnPlayButtonClick(object sender, RoutedEventArgs e)
+        {
+            assetList = dContext.ActiveScene.SceneAssets.ToList();
+
+            viewWindow = new RunWindow();
+            viewWindow.Show();
+            viewWindow.Focus();
         }
     }
 }

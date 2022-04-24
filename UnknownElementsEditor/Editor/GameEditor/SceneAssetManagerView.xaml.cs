@@ -27,6 +27,26 @@ namespace UnknownElementsEditor.Editor.GameEditor
             InitializeComponent();
         }
 
+        public void OnSelectionChange(Object sender, SelectionChangedEventArgs e)
+        {
+            UserProject dContext = DataContext as UserProject;
+
+            ProjectScene scene = dContext.projectScenes[activateSceneComboBox.SelectedIndex];
+
+            foreach (ProjectScene item in dContext.projectScenes)
+            {
+                if (item == scene)
+                {
+                    dContext.ActiveScene = item;
+                    scene.IsActive = true;
+                }
+                else
+                {
+                    item.IsActive = false;
+                }
+            }
+        }
+
         public void OnAddSceneButtonClick(Object sender, RoutedEventArgs e)
         {
             if (sender == addSceneButton)

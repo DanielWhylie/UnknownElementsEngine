@@ -80,7 +80,7 @@ namespace UnknownElementsEditor.Editor.GameEditor
             dContext.ActiveScene.RemoveAssetFromScene((GameEntity)removeButton.Tag);
         }
 
-        public void OnAssetListBoxSelectionChange(Object sender, SelectionChangedEventArgs e)
+        public void OnAssetListBoxSelectionChange(Object sender, EventArgs e)
         {
             ListBox entityListBox = (ListBox)sender;
 

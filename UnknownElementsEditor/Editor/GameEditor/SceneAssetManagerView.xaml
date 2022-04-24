@@ -37,7 +37,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Expander Background="White" x:Name="sceneExpander">
+                        <Expander IsExpanded="True" Background="White" x:Name="sceneExpander">
                             <Expander.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding SceneName}"/>
@@ -53,7 +53,8 @@
                                         </MenuItem>
                                     </Menu>
                                 </StackPanel>
-                                <ListBox ItemsSource="{Binding SceneAssets}" SelectionChanged="OnAssetListBoxSelectionChange" x:Name="assetListBox">
+                                <!--Fixed bug where first selected asset didnt display properties to user-->
+                                <ListBox SelectedIndex="0" ItemsSource="{Binding SceneAssets}" Loaded="OnAssetListBoxSelectionChange" SelectionChanged="OnAssetListBoxSelectionChange" x:Name="assetListBox">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">

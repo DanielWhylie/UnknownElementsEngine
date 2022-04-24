@@ -16,6 +16,7 @@
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
             <RowDefinition Height="30*"/>
@@ -34,33 +35,18 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Background="Gray" Margin="0,0,2,0">
             <Border Height="5" Background="#f0f0f0"/>
         </StackPanel>
-        
-        <StackPanel Grid.Row="0" Grid.Column="0"><!--width 640 height 320-->
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <Menu Height="25" VerticalAlignment="Top" Padding="3">
                 <MenuItem Header="File" Height="20" Width="30">
                     <MenuItem Header="Save Project" Click="OnMenuClick" x:Name="saveMenuItem"/>
-                    <!--<MenuItem Header="Open Project">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Text="{Binding fullProjectPath, Mode=OneWay}" Width="200" Height="20" x:Name="openProjectPathTextBox"/>
-                        <Button Content="..." Width="25" Height="20" Margin="5" Padding="1,-3,0,4" x:Name="fileBrowseButton" Click="OnBrowseFileButtonClick"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <Button Content="Open" HorizontalAlignment="Center" Click="OnMenuClick" x:Name="openProjectButton"/>
-                        <TextBlock Foreground="Red" TextAlignment="Center" Width="200" Height="20" x:Name="openErrorTextblock"/>
-                    </StackPanel>
-                </MenuItem>-->
                 </MenuItem>
+
                 <MenuItem Header="Exit" Click="OnMenuClick" x:Name="exitMenuItem"/>
                 <MenuItem Header="Fullscreen" Click="OnMenuClick" x:Name="fullScreenMenuItem"/>
                 <MenuItem Header="Windowedscreen" Click="OnMenuClick" IsEnabled="False" x:Name="windowedscreenMenuItem"/>
             </Menu>
             <gameEdit:GraphicalEditorView/>
         </StackPanel>
-        
-        <!--<syncfusion:DockingManager>
-            <ContentControl syncfusion:DockingManager.DesiredHeightInDockedMode="150" syncfusion:DockingManager.DesiredWidthInDockedMode="150" syncfusion:DockingManager.Header="Scenes" syncfusion:DockingManager.SideInDockedMode="Right"/>
-            <ContentControl syncfusion:DockingManager.DesiredWidthInDockedMode="150" syncfusion:DockingManager.Header="Scenes" syncfusion:DockingManager.SideInDockedMode="Right"/>
-        </syncfusion:DockingManager>-->
-
     </Grid>
 </UserControl>

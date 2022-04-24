@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 namespace UnknownElementsEditor.GameProject
@@ -17,7 +13,8 @@ namespace UnknownElementsEditor.GameProject
     {
         private string _entityName;
         [DataMember]
-        public string EntityName{
+        public string EntityName
+        {
             get => _entityName;
             set
             {
@@ -61,7 +58,8 @@ namespace UnknownElementsEditor.GameProject
 
         public void AddComponentToEntity(EntityComponent component)
         {
-            //_entityComponents.Add(new EntityComponent(this));
+            Debug.Assert(component != null);
+
             _entityComponents.Add(component);
         }
 
@@ -72,11 +70,11 @@ namespace UnknownElementsEditor.GameProject
             _entityComponents.Remove(component);
         }
 
-        public EntityComponent GetComponent(string componentName)
+        public EntityComponent GetComponent(Type componentToFind)
         {
             foreach (EntityComponent component in _entityComponents)
             {
-                if (component.ComponentName.ToLower() == componentName.ToLower())
+                if (component.GetType() == componentToFind)
                 {
                     return component;
                 }
@@ -85,7 +83,7 @@ namespace UnknownElementsEditor.GameProject
             return null;
         }
 
-        public virtual void DrawAsset(UnknownElementsEditor.GameProject.Transform transformComponent, WriteableBitmap writeBitMap){}
+        public virtual void DrawAsset(UnknownElementsEditor.GameProject.Transform transformComponent, WriteableBitmap writeBitMap) { }
 
         [OnDeserialized]
         private void OnDesirialized(StreamingContext streamingContext)

@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UnknownElementsEditor.GameProject;
 
 namespace UnknownElementsEditor.Editor.GameEditor
@@ -38,7 +28,7 @@ namespace UnknownElementsEditor.Editor.GameEditor
         private void OnGraphicalEditorViewLoaded(object sender, RoutedEventArgs e)
         {
             Debug.Assert(DataContext != null);
-            dContext = DataContext as UserProject;
+            dContext = (UserProject)DataContext;
             UserProject.SaveProject(dContext);
         }
 
@@ -55,7 +45,6 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
             writeBitMap = BitmapFactory.New(GraphicViewWidth, GraphicViewHeight);
             viewPort.Source = writeBitMap;
-            
 
             CompositionTarget.Rendering += Rendering;
         }
@@ -68,7 +57,7 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
             foreach (GameEntity asset in activeScene.SceneAssets)
             {
-                UnknownElementsEditor.GameProject.Transform transformComponent = (UnknownElementsEditor.GameProject.Transform)asset.GetComponent("Transform");
+                UnknownElementsEditor.GameProject.Transform transformComponent = (UnknownElementsEditor.GameProject.Transform)asset.GetComponent(typeof(UnknownElementsEditor.GameProject.Transform));
 
                 asset.DrawAsset(transformComponent, writeBitMap);
             }

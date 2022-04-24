@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UnknownElementsEditor.GameProject;
 
 namespace UnknownElementsEditor.Editor.GameEditor
@@ -29,7 +19,7 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
         public void OnSelectionChange(Object sender, SelectionChangedEventArgs e)
         {
-            UserProject dContext = DataContext as UserProject;
+            UserProject dContext = (UserProject)DataContext;
 
             ProjectScene scene = dContext.projectScenes[activateSceneComboBox.SelectedIndex];
 
@@ -51,7 +41,7 @@ namespace UnknownElementsEditor.Editor.GameEditor
         {
             if (sender == addSceneButton)
             {
-                UserProject dContext = DataContext as UserProject;
+                UserProject dContext = (UserProject)DataContext;
 
                 dContext.AddSceneToProject("Scene " + dContext.projectScenes.Count());
             }
@@ -59,17 +49,17 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
         public void OnRemoveSceneButtonClick(Object sender, RoutedEventArgs e)
         {
-            UserProject dContext = DataContext as UserProject;
+            UserProject dContext = (UserProject)DataContext;
 
-            Button removeButton = sender as Button;
+            Button removeButton = (Button)sender;
 
-            dContext.RemoveSceneFromProject(removeButton.Tag as ProjectScene);
+            dContext.RemoveSceneFromProject((ProjectScene)removeButton.Tag);
         }
 
         public void OnAssetAdd(Object sender, RoutedEventArgs e)
         {
-            MenuItem addAssetButton = sender as MenuItem;
-            ProjectScene scene = addAssetButton.Tag as ProjectScene;
+            MenuItem addAssetButton = (MenuItem)sender;
+            ProjectScene scene = (ProjectScene)addAssetButton.Tag;
             Debug.Assert(!String.IsNullOrWhiteSpace(addAssetButton.Header.ToString()));
 
             if (addAssetButton.Header.ToString() == "Square")
@@ -83,16 +73,16 @@ namespace UnknownElementsEditor.Editor.GameEditor
         }
         public void OnRemoveAssetButtonClick(Object sender, RoutedEventArgs e)
         {
-            UserProject dContext = DataContext as UserProject;
+            UserProject dContext = (UserProject)DataContext;
 
-            Button removeButton = sender as Button;
+            Button removeButton = (Button)sender;
 
-            dContext.ActiveScene.RemoveAssetFromScene(removeButton.Tag as GameEntity);
+            dContext.ActiveScene.RemoveAssetFromScene((GameEntity)removeButton.Tag);
         }
 
         public void OnAssetListBoxSelectionChange(Object sender, SelectionChangedEventArgs e)
         {
-            ListBox entityListBox = sender as ListBox;
+            ListBox entityListBox = (ListBox)sender;
 
             var asset = entityListBox.SelectedItem;
             PropertyManagerView.propertyViewInstance.DataContext = asset;

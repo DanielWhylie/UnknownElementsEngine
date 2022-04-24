@@ -13,12 +13,15 @@
         <DataTemplate DataType="{x:Type projectComponents:Transform}">
             <local:TransformView/>
         </DataTemplate>
+        
         <DataTemplate DataType="{x:Type projectComponents:Gravity}">
             <local:GravityView/>
         </DataTemplate>
+        
         <DataTemplate DataType="{x:Type projectComponents:BoxCollider2D}">
             <local:BoxCollider2DView/>
         </DataTemplate>
+        
         <DataTemplate DataType="{x:Type projectComponents:Script}">
             <local:ScriptView/>
         </DataTemplate>
@@ -30,13 +33,10 @@
             <TextBlock Text="Asset Name:" Margin="0,0,10,0"/>
             <TextBox Width="260" Text="{Binding EntityName}" KeyDown="OnRenameTextBoxChange"/>
         </StackPanel>
-        <!--<StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,0">
-            <Button Content="Add Component" Margin="0,0,0,0"/>
-        </StackPanel>-->
-
+        
         <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0">
             <Menu Height="20" VerticalAlignment="Top">
-                <MenuItem Header="Add Components">
+                <MenuItem Header="Add Components" Background="White">
                     <MenuItem Header="Transform" Click="OnComonentAdd" x:Name="transformMenuItem"/>
                     <MenuItem Header="Gravity" Click="OnComonentAdd" x:Name="gravityMenuItem"/>
                     <MenuItem Header="BoxCollider2D" Click="OnComonentAdd" x:Name="boxCollider2DMenuItem"/>

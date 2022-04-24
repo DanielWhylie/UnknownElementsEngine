@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=project:UserProject, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <StackPanel>
         <StackPanel>
             <TextBlock Grid.Row="0" FontSize="14" FontWeight="SemiBold" Padding="5,0,0,3">
@@ -15,6 +16,7 @@
                     <Binding Path="projectName" StringFormat=">{0}"/>
                 </TextBlock.Text>
             </TextBlock>
+
             <ComboBox SelectedIndex="0" ItemsSource="{Binding projectScenes}" SelectionChanged="OnSelectionChange" Margin="50,0,50,0" x:Name="activateSceneComboBox">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -22,6 +24,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            
             <Button Grid.Row="0" Width="100" Height="25" Content="Add Scene" Background="White" Click="OnAddSceneButtonClick" Margin="0,5,0,0" x:Name="addSceneButton"/>
         </StackPanel>
 
@@ -42,7 +45,6 @@
                                 </StackPanel>
                             </Expander.Header>
                             <StackPanel>
-                                <!--<Button Width="100" Height="25" Content="Add Asset" Background="White" Click="OnAddAssetButtonClick" Tag="{Binding}" x:Name="addAssetButton"/>-->
                                 <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0">
                                     <Menu Height="20" VerticalAlignment="Top">
                                         <MenuItem Header="Add Asset" Background="White">

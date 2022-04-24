@@ -30,8 +30,8 @@
                 </TextBlock>
                 
                 <TextBlock FontSize="16" Width="800" Height="415" Background="LightGray" Margin="0,3,0,0">
-                    Date 12/04/2022: Unknown Elements Project Starts.<LineBreak/>
-                    Date 14/04/2022: Added Basic Open Project and Create Project views.<LineBreak/>
+                    News 1: Unknown Elements Project Starts.<LineBreak/>
+                    News 2: Added Basic Open Project and Create Project views.<LineBreak/>
                 </TextBlock>
             </StackPanel>
 

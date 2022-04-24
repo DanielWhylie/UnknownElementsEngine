@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UnknownElementsEditor.GameProject;
 
 namespace UnknownElementsEditor.Editor.GameEditor
@@ -36,7 +27,7 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
             Debug.Assert(main.DataContext != null);
             DataContext = main.DataContext;
-            dContext = main.DataContext as UserProject;
+            dContext = (UserProject)main.DataContext;
         }
 
         public int GraphicViewWidth;
@@ -85,20 +76,20 @@ namespace UnknownElementsEditor.Editor.GameEditor
             writeBitMap.Clear();
             foreach (GameEntity asset in AssetsToRun)
             {
-                asset.DrawAsset((UnknownElementsEditor.GameProject.Transform)asset.GetComponent("Transform"), writeBitMap);
+                asset.DrawAsset((UnknownElementsEditor.GameProject.Transform)asset.GetComponent(typeof(UnknownElementsEditor.GameProject.Transform)), writeBitMap);
 
-                UnknownElementsEditor.GameProject.Transform assetTransform = (UnknownElementsEditor.GameProject.Transform)asset.GetComponent("Transform");
-                UnknownElementsEditor.GameProject.Script assetScript = (UnknownElementsEditor.GameProject.Script)asset.GetComponent("Script");
+                UnknownElementsEditor.GameProject.Transform assetTransform = (UnknownElementsEditor.GameProject.Transform)asset.GetComponent(typeof(UnknownElementsEditor.GameProject.Transform));
+                UnknownElementsEditor.GameProject.Script assetScript = (UnknownElementsEditor.GameProject.Script)asset.GetComponent(typeof(Script));
 
                 foreach (var item in asset.EntityComponents)
                 {
                     if (item.ComponentName == "Gravity")
                     {
-                        asset.GetComponent("Gravity").AddGravityToObject(assetTransform);
+                        asset.GetComponent(typeof(Gravity)).AddGravityToObject(assetTransform);
                     }
                     else if (item.ComponentName == "Script")
                     {
-                        asset.GetComponent("Script").RunScript(assetTransform, writeBitMap);
+                        asset.GetComponent(typeof(Script)).RunScript(assetTransform, writeBitMap);
                     }
                 }
             }

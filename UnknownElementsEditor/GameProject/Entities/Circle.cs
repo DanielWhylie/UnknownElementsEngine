@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 using System.Windows.Media;
-using System.Runtime.Serialization;
 using System.Windows.Media.Imaging;
 
 namespace UnknownElementsEditor.GameProject
@@ -34,7 +29,7 @@ namespace UnknownElementsEditor.GameProject
             IsVisable = entity.IsVisable;
             assetColor = entity.assetColor;
 
-            this.RemoveComponentFromEntity(this.GetComponent("Transform"));
+            this.RemoveComponentFromEntity(this.GetComponent(typeof(UnknownElementsEditor.GameProject.Transform)));
 
             foreach (var item in entity.EntityComponents)
             {

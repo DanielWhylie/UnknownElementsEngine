@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
 
 namespace UnknownElementsEditor.GameProject
 {
@@ -19,9 +17,9 @@ namespace UnknownElementsEditor.GameProject
         public string projectPath { get; set; }
         [DataMember]
         public DateTime projectDate { get; set; }
-        public string fullPath 
-        { 
-            get => $@"{projectPath}{projectName}{UserProject.fileExtention}"; 
+        public string fullPath
+        {
+            get => $@"{projectPath}{projectName}{UserProject.fileExtention}";
         }
 
         public byte[] screenshot { get; set; }
@@ -33,7 +31,7 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public List<ProjectInfo> projectInfos { get; set; }
     }
-    
+
     class OpenProject
     {
         private readonly static string appInfoPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\UnknownElementsEditor\";

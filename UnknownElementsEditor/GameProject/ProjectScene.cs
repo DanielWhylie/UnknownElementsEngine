@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnknownElementsEditor.GameProject
 {
@@ -46,7 +41,7 @@ namespace UnknownElementsEditor.GameProject
         }
 
         [DataMember(Name = "Assets")]
-        private ObservableCollection<GameEntity> _sceneAssets= new ObservableCollection<GameEntity>();
+        private ObservableCollection<GameEntity> _sceneAssets = new ObservableCollection<GameEntity>();
         public ReadOnlyObservableCollection<GameEntity> SceneAssets { get; private set; }
 
         public ProjectScene(string sceneName, UserProject proj)
@@ -58,7 +53,6 @@ namespace UnknownElementsEditor.GameProject
 
             OnDesirialized(new StreamingContext());
         }
-        //TODO: add list of game entities
 
         public void AddAssetToScene(GameEntity asset)
         {

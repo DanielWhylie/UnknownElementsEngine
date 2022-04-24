@@ -5,8 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnknownElementsEditor.GameProject
 {
@@ -14,7 +12,7 @@ namespace UnknownElementsEditor.GameProject
     public class ProjectTemplate
     {
         [DataMember]
-        public string projectFileName { get; set;}
+        public string projectFileName { get; set; }
         [DataMember]
         public string projectType { get; set; }
         [DataMember]
@@ -125,7 +123,6 @@ namespace UnknownElementsEditor.GameProject
             }
             catch (Exception e)
             {
-                //TODO: Change debug output
                 Debug.WriteLine(e);
             }
         }

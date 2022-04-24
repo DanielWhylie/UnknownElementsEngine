@@ -27,9 +27,12 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
         private void OnGraphicalEditorViewLoaded(object sender, RoutedEventArgs e)
         {
-            Debug.Assert(DataContext != null);
+            //Fixed error where program crashes as DataContext is null after forcibly exiting ProjectBrowserWin.xaml
+            if (DataContext == null)
+            {
+                Environment.Exit(0);
+            }
             dContext = (UserProject)DataContext;
-            UserProject.SaveProject(dContext);
         }
 
         public int GraphicViewWidth;
@@ -39,7 +42,6 @@ namespace UnknownElementsEditor.Editor.GameEditor
 
         public void StartGraphics(object sender, RoutedEventArgs e)
         {
-
             GraphicViewWidth = (int)viewPort.Width;
             GraphicViewHeight = (int)viewPort.Height;
 

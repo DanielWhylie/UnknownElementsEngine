@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using UnknownElementsEditor.GameProject;
 
 namespace UnknownElementsEditor.Editor
@@ -20,7 +21,7 @@ namespace UnknownElementsEditor.Editor
             propertyViewInstance = this;
         }
 
-        public void OnRenameTextBoxChange(Object sender, KeyEventArgs e)
+        public void OnRenameEntryBoxChange(Object sender, KeyEventArgs e)
         {
             TextBox box = (TextBox)sender;
 
@@ -31,6 +32,16 @@ namespace UnknownElementsEditor.Editor
 
                 // Kill keyboard focus
                 Keyboard.ClearFocus();
+            }
+        }
+
+        public void OnColorEntryBoxChange(Object sender, KeyEventArgs e)
+        {
+            GameEntity dContext = (GameEntity)DataContext;
+
+            if (e.Key == Key.Enter)
+            {
+                dContext.assetColor = (Color)ColorConverter.ConvertFromString(assetColorEntryBox.Text);
             }
         }
 

@@ -17,8 +17,8 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="viewPortContainer">
-            <Image Width="1510" Height="700" x:Name="viewPort" Loaded="StartGraphics" HorizontalAlignment="Left"/>
+        <StackPanel x:Name="viewPortContainerRun">
+            <Image Width="1510" Height="700" x:Name="viewPortRun" Loaded="StartGraphics" HorizontalAlignment="Left"/>
         </StackPanel>
     </Grid>
 </Window>

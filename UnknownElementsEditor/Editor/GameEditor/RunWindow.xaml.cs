@@ -40,11 +40,11 @@ namespace UnknownElementsEditor.Editor.GameEditor
         public void StartGraphics(object sender, RoutedEventArgs e)
         {
 
-            GraphicViewWidth = (int)viewPort.Width;
-            GraphicViewHeight = (int)viewPort.Height;
+            GraphicViewWidth = (int)viewPortRun.Width;
+            GraphicViewHeight = (int)viewPortRun.Height;
 
             writeBitMap = BitmapFactory.New(GraphicViewWidth, GraphicViewHeight);
-            viewPort.Source = writeBitMap;
+            viewPortRun.Source = writeBitMap;
 
             activeScene = dContext.ActiveScene;
 
@@ -52,11 +52,11 @@ namespace UnknownElementsEditor.Editor.GameEditor
             {
                 GameEntity newAsset;
 
-                if (asset.EntityType.ToLower() == "Square".ToLower())
+                if (asset.GetType() == typeof(Square))
                 {
                     newAsset = new Square((Square)asset);
                 }
-                else if (asset.EntityType.ToLower() == "Circle".ToLower())
+                else if (asset.GetType() == typeof(Circle))
                 {
                     newAsset = new Circle((Circle)asset);
                 }
@@ -90,6 +90,13 @@ namespace UnknownElementsEditor.Editor.GameEditor
                     else if (item.ComponentName == "Script")
                     {
                         asset.GetComponent(typeof(Script)).RunScript(assetTransform, writeBitMap);
+                    }
+                    else if (item.ComponentName == "BoxCollider2D")
+                    {
+                        foreach (var entity in AssetsToRun)
+                        {
+                            asset.GetComponent(typeof(BoxCollider2D)).CheckCollision((UnknownElementsEditor.GameProject.Transform)entity.GetComponent(typeof(UnknownElementsEditor.GameProject.Transform)));
+                        }
                     }
                 }
             }

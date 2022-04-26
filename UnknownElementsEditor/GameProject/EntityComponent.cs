@@ -22,5 +22,6 @@ namespace UnknownElementsEditor.GameProject
 
         public virtual void AddGravityToObject(Transform transform) { }
         public virtual void RunScript(Transform transform, WriteableBitmap writeBitMap) { }
+        public virtual void CheckCollision(Transform colliderTransform) { }
     }
 }

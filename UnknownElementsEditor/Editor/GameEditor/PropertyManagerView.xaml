@@ -10,6 +10,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
+        
         <DataTemplate DataType="{x:Type projectComponents:Transform}">
             <local:TransformView/>
         </DataTemplate>
@@ -31,9 +32,14 @@
         <TextBlock Text="Properties:" FontSize="14" FontWeight="SemiBold"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Asset Name:" Margin="0,0,10,0"/>
-            <TextBox Width="260" Text="{Binding EntityName}" KeyDown="OnRenameTextBoxChange"/>
+            <TextBox Width="260" Text="{Binding EntityName}" KeyDown="OnRenameEntryBoxChange"/>
         </StackPanel>
-        
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,5,0,0">
+            <TextBlock Text="Asset Color:" Margin="0,0,10,0"/>
+            <TextBox Width="260" Text="{Binding assetColor}" KeyDown="OnColorEntryBoxChange" x:Name="assetColorEntryBox"/>
+        </StackPanel>
+
         <StackPanel HorizontalAlignment="Center" Margin="0,5,0,0">
             <Menu Height="20" VerticalAlignment="Top">
                 <MenuItem Header="Add Components" Background="White">

@@ -73,11 +73,11 @@ namespace UnknownElementsEditor.Editor.GameEditor
         }
         public void OnRemoveAssetButtonClick(Object sender, RoutedEventArgs e)
         {
-            UserProject dContext = (UserProject)DataContext;
-
             Button removeButton = (Button)sender;
-
-            dContext.ActiveScene.RemoveAssetFromScene((GameEntity)removeButton.Tag);
+            GameEntity dContext = (GameEntity)removeButton.Tag;
+            
+            //errors when asset is removed from an non active scene FIXED
+            dContext.AttachedScene.RemoveAssetFromScene((GameEntity)removeButton.Tag);
         }
 
         public void OnAssetListBoxSelectionChange(Object sender, EventArgs e)

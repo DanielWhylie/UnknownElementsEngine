@@ -21,7 +21,7 @@ namespace UnknownElementsEditor.GameProject
             Position = new Vector2D();
             Rotation = new Vector2D();
             Size = new Vector2D(10, 10);
-            Mass = 0;
+            Mass = 1;
         }
     }
 }

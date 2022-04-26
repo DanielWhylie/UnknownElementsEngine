@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace UnknownElementsEditor.GameProject
@@ -25,6 +27,11 @@ namespace UnknownElementsEditor.GameProject
                 }
             }
         }
+
+        [DataMember]
+        [DefaultValue(typeof(Color), "Black")]
+        public Color assetColor { get; set; }
+
         [DataMember]
         public string EntityType { get; set; }
         [DataMember]

@@ -79,7 +79,7 @@ namespace UnknownElementsEditor.GameProject
 
         private static void WriteProjectInfo()
         {
-            List<ProjectInfo> orderedProjectInfos = _projectInfos.OrderBy(x => x.projectDate).ToList();
+            List<ProjectInfo> orderedProjectInfos = _projectInfos.OrderBy(x => x.projectName).ToList();
 
             ProjectInfoCollection infoCollection = new ProjectInfoCollection()
             {

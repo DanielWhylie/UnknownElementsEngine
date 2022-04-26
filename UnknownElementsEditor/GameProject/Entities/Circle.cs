@@ -10,8 +10,6 @@ namespace UnknownElementsEditor.GameProject
         [DataMember]
         public bool IsVisable { get; set; }
         [DataMember]
-        public Color assetColor { get; set; }
-        [DataMember]
         public bool IsFilled { get; set; }
 
         public Circle(ProjectScene scene, string name)
@@ -33,7 +31,22 @@ namespace UnknownElementsEditor.GameProject
 
             foreach (var item in entity.EntityComponents)
             {
-                this.AddComponentToEntity(item);
+                if (item.ComponentName == "Transform")
+                {
+                    UnknownElementsEditor.GameProject.Transform oldTran = (UnknownElementsEditor.GameProject.Transform)item;
+                    UnknownElementsEditor.GameProject.Transform newTran = new UnknownElementsEditor.GameProject.Transform(this);
+
+                    newTran.Position = new Vector2D(oldTran.Position.X, oldTran.Position.Y);
+                    newTran.Rotation = new Vector2D(oldTran.Rotation.X, oldTran.Rotation.Y);
+                    newTran.Size = new Vector2D(oldTran.Size.X, oldTran.Size.Y);
+                    newTran.Mass = oldTran.Mass;
+
+                    this.AddComponentToEntity(newTran);
+                }
+                else
+                {
+                    this.AddComponentToEntity(item);
+                }
             }
         }
 

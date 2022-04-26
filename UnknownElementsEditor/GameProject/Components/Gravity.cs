@@ -14,6 +14,8 @@ namespace UnknownElementsEditor.GameProject
         {
             GameObject = asset;
             ComponentName = this.GetType().Name;
+            IsWeightless = false;
+            Acceleration = 1;
         }
 
         public override void AddGravityToObject(Transform transform)

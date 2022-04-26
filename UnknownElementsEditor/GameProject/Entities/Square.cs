@@ -10,9 +10,6 @@ namespace UnknownElementsEditor.GameProject
     {
         [DataMember]
         public bool IsVisable { get; set; }
-        [DataMember]
-        [DefaultValue(typeof(Color), "Black")]
-        public Color assetColor { get; set; }
 
         public Square(ProjectScene scene, string name) : base(scene, name)
         {
@@ -28,19 +25,33 @@ namespace UnknownElementsEditor.GameProject
             AttachedScene = entity.AttachedScene;
             IsVisable = entity.IsVisable;
             assetColor = entity.assetColor;
-
+            
             this.RemoveComponentFromEntity(this.GetComponent(typeof(UnknownElementsEditor.GameProject.Transform)));
 
             foreach (var item in entity.EntityComponents)
             {
-                this.AddComponentToEntity(item);
+                if(item.ComponentName == "Transform")
+                {
+                    UnknownElementsEditor.GameProject.Transform oldTran = (UnknownElementsEditor.GameProject.Transform)item;
+                    UnknownElementsEditor.GameProject.Transform newTran = new UnknownElementsEditor.GameProject.Transform(this);
+
+                    newTran.Position = new Vector2D(oldTran.Position.X, oldTran.Position.Y);
+                    newTran.Rotation = new Vector2D(oldTran.Rotation.X, oldTran.Rotation.Y);
+                    newTran.Size = new Vector2D(oldTran.Size.X, oldTran.Size.Y);
+                    newTran.Mass = oldTran.Mass;
+                    this.AddComponentToEntity(newTran);
+                }
+                else
+                {
+                    this.AddComponentToEntity(item);
+                }
             }
         }
 
         public override void DrawAsset(UnknownElementsEditor.GameProject.Transform transformComponent, WriteableBitmap writeBitMap)
         {
 
-            if (!IsVisable)
+            if (!IsVisable || transformComponent == null)
             {
                 return;
             }

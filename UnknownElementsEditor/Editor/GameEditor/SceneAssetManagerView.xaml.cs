@@ -84,8 +84,15 @@ namespace UnknownElementsEditor.Editor.GameEditor
         {
             ListBox entityListBox = (ListBox)sender;
 
+            //Bug: selection remains in different scene assets FIXED
+
             var asset = entityListBox.SelectedItem;
+
+            //shows nothing selected issue
+            entityListBox.UnselectAll();
+
             PropertyManagerView.propertyViewInstance.DataContext = asset;
+
         }
     }
 }

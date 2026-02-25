@@ -25,7 +25,7 @@ namespace UnknownElementsEditor.GameProject
 
     class NewProject : ViewModelTemplate
     {
-        private readonly string _templatePath = @"..\..\..\..\UnknownElementsEditor\UnknownElementsEditor\ProjectTemplates";
+        private readonly string _templatePath = @"..\..\..\..\UnknownElementsEngine\UnknownElementsEditor\ProjectTemplates";
 
         private string _projectName = "NewProject";
         public string ProjectName

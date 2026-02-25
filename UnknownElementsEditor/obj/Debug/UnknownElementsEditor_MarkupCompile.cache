@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\obj\Debug\
+C:\Users\fluor\Source\Repos\UnknownElementsEngine\UnknownElementsEditor\obj\Debug\
 UnknownElementsEditor
 none
 false
 DEBUG;TRACE
-D:\Documents\University\Final Project\Project\UnknownElementsEditor\UnknownElementsEditor\App.xaml
-142137671440
+C:\Users\fluor\Source\Repos\UnknownElementsEngine\UnknownElementsEditor\App.xaml
+14-473760040
 
-33399495540
-221598386088
+33105651625
+22962225606
 Editor\GameEditor\ComponentView.xaml;Editor\GameEditor\ComponentViews\BoxCollider2DView.xaml;Editor\GameEditor\ComponentViews\GravityView.xaml;Editor\GameEditor\ComponentViews\ScriptView.xaml;Editor\GameEditor\ComponentViews\TransformView.xaml;Editor\GameEditor\GameEditorView.xaml;Editor\GameEditor\GraphicalEditorView.xaml;Editor\GameEditor\PropertyManagerView.xaml;Editor\GameEditor\RunWindow.xaml;Editor\GameEditor\SceneAssetManagerView.xaml;GameProject\CreateProjectView.xaml;GameProject\OpenProjectView.xaml;GameProject\ProjectBrowserWin.xaml;MainWindow.xaml;
 
 False
